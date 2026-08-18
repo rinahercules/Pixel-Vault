@@ -1,0 +1,345 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+background: #0a0a0f;
+color: #e0e0e0;
+font-family: 'VT323', monospace;
+line-height: 1.4;
+overflow-x: hidden;
+}
+
+:root {
+--neon-pink: #ff2a6d;
+--neon-cyan: #05d9e8;
+--neon-yellow: #f9f002;
+--neon-green: #39ff14;
+--card-bg: #12121a;
+}
+
+/* HERO */
+.hero {
+position: relative;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+background: linear-gradient(180deg, #0a0a0f 0%, #1a0a2e 50%, #0a0a0f 100%);
+overflow: hidden;
+}
+
+.hero-content {
+position: relative;
+z-index: 2;
+max-width: 800px;
+padding: 2rem;
+}
+
+.logo {
+font-family: 'Press Start 2P', cursive;
+font-size: clamp(2rem, 8vw, 4.5rem);
+color: var(--neon-cyan);
+text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-pink);
+margin-bottom: 1rem;
+animation: glow 2s ease-in-out infinite alternate;
+}
+
+.tagline {
+font-family: 'Press Start 2P', cursive;
+font-size: clamp(0.7rem, 2.5vw, 1.1rem);
+color: var(--neon-yellow);
+letter-spacing: 3px;
+margin-bottom: 1.5rem;
+}
+
+.description {
+font-size: 1.4rem;
+max-width: 600px;
+margin: 0 auto 2.5rem;
+color: #c0c0c0;
+}
+
+.cta-btn {
+display: inline-block;
+font-family: 'Press Start 2P', cursive;
+font-size: 0.9rem;
+padding: 1rem 2rem;
+background: transparent;
+color: var(--neon-pink);
+border: 3px solid var(--neon-pink);
+text-decoration: none;
+text-shadow: 0 0 8px var(--neon-pink);
+box-shadow: 0 0 15px var(--neon-pink);
+transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+background: var(--neon-pink);
+color: #000;
+box-shadow: 0 0 30px var(--neon-pink);
+transform: scale(1.05);
+}
+
+.scanlines {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: repeating-linear-gradient(
+0deg,
+rgba(0, 0, 0, 0.15) 0px,
+rgba(0, 0, 0, 0.15) 1px,
+transparent 1px,
+transparent 3px
+);
+pointer-events: none;
+z-index: 1;
+}
+
+/* SECTION TITLES */
+.section-title {
+font-family: 'Press Start 2P', cursive;
+font-size: clamp(1.2rem, 4vw, 2rem);
+text-align: center;
+color: var(--neon-cyan);
+text-shadow: 0 0 10px var(--neon-cyan);
+margin-bottom: 3rem;
+letter-spacing: 2px;
+}
+
+/* GAMES SECTION */
+.games-section {
+padding: 5rem 1.5rem;
+background: #0d0d14;
+}
+
+.games-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+gap: 1.8rem;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.game-card {
+background: var(--card-bg);
+border: 3px solid var(--neon-cyan);
+border-radius: 8px;
+overflow: hidden;
+transition: transform 0.3s, box-shadow 0.3s;
+box-shadow: 0 0 15px rgba(5, 217, 232, 0.3);
+display: flex;
+flex-direction: column;
+}
+
+.game-card:hover {
+transform: translateY(-8px) scale(1.02);
+box-shadow: 0 0 30px var(--neon-cyan);
+}
+
+.game-art {
+height: 140px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 3.5rem;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-bottom: 2px solid var(--neon-cyan);
+}
+
+.game-info {
+padding: 1rem;
+flex-grow: 1;
+display: flex;
+flex-direction: column;
+}
+
+.game-title {
+font-family: 'Press Start 2P', cursive;
+font-size: 0.68rem;
+color: var(--neon-yellow);
+margin-bottom: 0.5rem;
+line-height: 1.45;
+word-break: break-word;
+}
+
+.game-desc {
+font-size: 1.1rem;
+color: #aaa;
+line-height: 1.3;
+}
+
+/* GUESS SECTION */
+.guess-section {
+padding: 5rem 2rem;
+background: linear-gradient(180deg, #0d0d14, #1a0a2e);
+}
+
+.guess-container {
+max-width: 600px;
+margin: 0 auto;
+background: var(--card-bg);
+border: 4px solid var(--neon-pink);
+border-radius: 12px;
+padding: 2.5rem;
+text-align: center;
+box-shadow: 0 0 25px rgba(255, 42, 109, 0.4);
+}
+
+.clue-label {
+font-family: 'Press Start 2P', cursive;
+font-size: 0.8rem;
+color: var(--neon-yellow);
+margin-bottom: 0.8rem;
+}
+
+.clue {
+font-size: 1.55rem;
+color: var(--neon-cyan);
+min-height: 3.5rem;
+margin-bottom: 1.8rem;
+padding: 0.8rem;
+background: #0a0a12;
+border: 2px dashed var(--neon-cyan);
+border-radius: 6px;
+}
+
+.input-area {
+display: flex;
+gap: 0.8rem;
+margin-bottom: 1.5rem;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+#guessInput {
+flex: 1;
+min-width: 200px;
+padding: 0.9rem 1rem;
+font-family: 'VT323', monospace;
+font-size: 1.4rem;
+background: #0a0a12;
+border: 3px solid var(--neon-cyan);
+color: #fff;
+border-radius: 4px;
+outline: none;
+}
+
+#guessInput:focus {
+box-shadow: 0 0 12px var(--neon-cyan);
+}
+
+.btn {
+font-family: 'Press Start 2P', cursive;
+font-size: 0.7rem;
+padding: 0.9rem 1.4rem;
+background: transparent;
+color: var(--neon-green);
+border: 3px solid var(--neon-green);
+cursor: pointer;
+transition: all 0.25s;
+}
+
+.btn:hover:not(:disabled) {
+background: var(--neon-green);
+color: #000;
+box-shadow: 0 0 15px var(--neon-green);
+}
+
+.btn:disabled {
+opacity: 0.4;
+cursor: not-allowed;
+}
+
+.start-btn {
+color: var(--neon-pink);
+border-color: var(--neon-pink);
+}
+
+.start-btn:hover:not(:disabled) {
+background: var(--neon-pink);
+color: #000;
+box-shadow: 0 0 15px var(--neon-pink);
+}
+
+.play-again-btn {
+color: var(--neon-yellow);
+border-color: var(--neon-yellow);
+}
+
+.play-again-btn:hover {
+background: var(--neon-yellow);
+color: #000;
+box-shadow: 0 0 15px var(--neon-yellow);
+}
+
+.feedback {
+font-size: 1.5rem;
+min-height: 2rem;
+margin-bottom: 1.2rem;
+font-weight: bold;
+}
+
+.feedback.correct {
+color: var(--neon-green);
+text-shadow: 0 0 10px var(--neon-green);
+}
+
+.feedback.incorrect {
+color: var(--neon-pink);
+text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.game-stats {
+display: flex;
+justify-content: space-around;
+font-size: 1.3rem;
+margin-bottom: 1.8rem;
+color: #ccc;
+}
+
+.controls {
+display: flex;
+gap: 1rem;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.hidden {
+display: none !important;
+}
+
+/* FOOTER */
+footer {
+text-align: center;
+padding: 2rem;
+background: #050508;
+font-size: 1.1rem;
+color: #666;
+border-top: 2px solid var(--neon-cyan);
+}
+
+/* ANIMATION */
+@keyframes glow {
+from {
+text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-pink);
+}
+to {
+text-shadow: 0 0 20px var(--neon-cyan), 0 0 30px var(--neon-cyan), 0 0 60px var(--neon-pink);
+}
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+.input-area {
+flex-direction: column;
+}
+#guessInput {
+width: 100%;
+}
+}
